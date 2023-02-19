@@ -2,12 +2,11 @@ package cage;
 
 import animals.Animal;
 import animals.Wolf;
+import animals.WolfComparator;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-public class WolfCage implements AnimalCage{
+public class WolfCage implements AnimalCage {
     private int cleanCage;
     private ArrayList<Wolf> wolfs;
 
@@ -25,7 +24,7 @@ public class WolfCage implements AnimalCage{
 
     @Override
     public void addAnimal(Animal animal) {
-        if(animal instanceof Animal)
+        if (animal instanceof Animal)
             wolfs.add((Wolf) animal);
     }
 
@@ -48,8 +47,15 @@ public class WolfCage implements AnimalCage{
         int random = rnd.nextInt(length);
 
         for (int i = 0; i < length; i++) {
-            if(i==random) wolfList.add(wolfs.get(i));
+            if (i == random) wolfList.add(wolfs.get(i));
         }
         return wolfList;
     }
+    public void sortWeight(){
+        wolfs.sort(new WolfComparator());
+    }
+    public void sortAge(){
+        Collections.sort(wolfs, new WolfComparator());
+    }
+
 }

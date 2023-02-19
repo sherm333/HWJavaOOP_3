@@ -41,5 +41,14 @@ public class Wolf extends Animal {
                 ", countLimbs = " + countLimbs +
                 "}\n";
     }
+    @Override
+    public int compareTo(Wolf o) {
+        if(this.age > o.getAge())
+            return 1;
+        else if(this.age < o.getAge())
+            return -1;
+        else
+            return 0;
+    }
 }
 
